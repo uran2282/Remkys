@@ -1,0 +1,221 @@
+
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script src="js/mobilyslider.js" type="text/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+     <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>    
+<div class="page_wrapper">
+    <div class="content_wrapper">
+        <header>
+            <div class="wrap">
+                <a class="toggle pos_abs" href="javascript:void(0);">
+                       <span>☰</span>
+                </a>
+                <ul class="menu fl">
+                    <li><a href="" class="active">Главная</a></li>
+                    <li><a href="">О компании</a></li>
+                    <li><a href="">Работы</a></li>
+                    <li><a href="">Цены</a></li>
+                    <li><a href="">Вопросы и ответы</a></li>
+                    <li><a href="">Контакты</a></li>
+                </ul>
+                <div class="lang_bar fr">
+                    <a href="" class="disable" title="данной страницы не выбранном языке нет">FL <img class="pos_abs" src="img/lang_icon.png"></a>
+                    <a href="">RU <img class="pos_abs" src="img/lang_icon_2.png"></a>
+                </div>
+            </div>
+        </header>
+        <section id="top_bar">
+            <div class="wrap">
+                <div class="logo fl">
+                    <a href="">
+                        <img class="fl" src="img/logo.png">
+                    </a>    
+                </div>
+                <div class="phone fl">
+                    <div>Phone:</div>
+                    <div>+1 959 603 6035 (585-SUPPORT)</div>
+                </div>
+                <div class="locations fr">
+                    <div>Location:</div>
+                    <div>8901 Marmora Road </div>
+                    <div>Glasgow, DO4 89GR.</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="wrap">
+            <div class="not_found">
+                <span style="font-size: 180px;">4</span>
+                <span style="font-size: 120px;">0</span>
+                <span style="font-size: 150px;">4</span>
+            </div>
+            <div class="not_found_text">
+                Страница не найдена. <br>
+                Могут быть несколько причин:
+                <ul>
+                    <li>Страница переменщена или переименована</li>
+                    <li>Страница больше не существует на этом сайте</li>
+                    <li>URL не соответствует действительности</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="wrap">
+            <div class="foot_column fl">
+                <div class="column_title">PRODUCTS</div>
+                <ul>
+                    <li><a href="">Vestibulum</a></li>
+                    <li><a href="">Culis lacinia</a></li>
+                    <li><a href="">Proin dictum</a></li>
+                    <li><a href="">Fusce euismod</a></li>
+                    <li><a href="">Consequat</a></li>
+                </ul>
+            </div>
+            <div class="foot_column fl">
+                <div  class="column_title">COMPANY</div>
+                <ul>
+                    <li><a href="">Vestibulum</a></li>
+                    <li><a href="">Culis lacinia</a></li>
+                    <li><a href="">Proin dictum</a></li>
+                    <li><a href="">Fusce euismod</a></li>
+                    <li><a href="">Consequat</a></li>
+                </ul>
+            </div>
+            <div class="foot_column fl">
+                <div  class="column_title">INFORMATION</div>
+                <ul>
+                    <li><a href="">Vestibulum</a></li>
+                    <li><a href="">Culis lacinia</a></li>
+                    <li><a href="">Proin dictum</a></li>
+                    <li><a href="">Fusce euismod</a></li>
+                    <li><a href="">Consequat</a></li>
+                </ul>
+            </div>
+            <div class="foot_column fl">
+                <div  class="column_title">
+                    <a href=""><img src="img/foot_img.png"></a>
+                </div>  
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor aliqua.</p> 
+        </div>
+    </footer>
+    <div class="copyright">
+        <div class="wrap">
+            <img class="fl" src="img/foot_logo.png">
+            <div class="copyright_text fr">
+                <span>REMKYS</span>  © 2016 Все права защищены
+            </div>
+        </div>
+    </div>
+</div>
+<div class="alert_fixed">
+<div class="wrap">
+    <div class="alert_text fl">Alert block</div>
+        <button class="alert_btn fr">OK</button>
+</div>
+     
+</div>
+<script type="text/javascript">
+        $('.slider3').mobilyslider({
+        transition: 'fade',
+        animationSpeed: 800,
+        bullets: true,
+        arrowsHide: false
+    });
+</script>
+<script type="text/javascript">
+        var onMapMouseleaveHandler = function (event) {
+        var that = $(this);
+        that.on('click', onMapClickHandler);
+        that.off('mouseleave', onMapMouseleaveHandler);
+        that.find('iframe').css("pointer-events", "none");
+    }
+    var onMapClickHandler = function (event) {
+        var that = $(this);
+        // Disable the click handler until the user leaves the map area
+        that.off('click', onMapClickHandler);
+        // Enable scrolling zoom
+        that.find('iframe').css("pointer-events", "auto");
+        // Handle the mouse leave event
+        that.on('mouseleave', onMapMouseleaveHandler);
+    }
+    // Enable map zooming with mouse scroll when the user clicks the map
+    $('.embed-container').on('click', onMapClickHandler); 
+
+
+    
+  $(document).ready(function(){
+    google.maps.event.addDomListener(window, 'load', init); 
+});
+
+
+  function init() {
+    var myLatlng = new google.maps.LatLng(60.907631, 26.624377);
+    var center_coord = new google.maps.LatLng(60.907631, 26.624377);
+    var mapOptions = {
+        zoom: 17,
+        scrollwheel: false,
+        navigationControl: false,
+        mapTypeControl: false,
+        scaleControl: false,
+        draggable: true,
+        center: center_coord,
+        
+    };
+    var mapElement = document.getElementById('map-container');
+    var map = new google.maps.Map(mapElement, mapOptions);
+
+    var markerImage = new google.maps.MarkerImage(
+        'img/marker.png'
+    );
+    var markerImageHover = new google.maps.MarkerImage(
+      'img/marker.png'
+    );
+    
+    var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title: 'WebSynthesis!',
+        icon: markerImage
+    });
+    
+     var contentString = '<div id="content">'+
+     '<span>Olemme tässä nyt</span>'
+          '</div>';
+
+      var infowindow = new google.maps.InfoWindow({
+        content: contentString
+      });
+
+    google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(map,marker);
+  });
+  // show map, open infoBox 
+        google.maps.event.addListenerOnce(map, 'tilesloaded', function() {
+          infowindow.open(map, marker);
+        });
+
+}
+
+/*google.maps.event.addDomListener(window, 'load', initialize);*/
+
+
+</script>
+</body>
+</html>
